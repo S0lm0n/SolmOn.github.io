@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        /* Including Monsterrat font */
+        @font-face {
+            font-family: 'montserrat_regular';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_medium';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_bold';
+            src: url('./static/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'montserrat_lightItalic';
+            src: url('./static/fonts/Montserrat/static/Montserrat-LightItalic.ttf') format('truetype');
+        }
+
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        /* Defining color values */
+        :root {
+            --main-color: rgba(0, 7, 26, 1); /* Define a variable for the main color */
+            --secondary-color: rgba(217, 217, 217, 1); /* Define a variable for the secondary color */
+        }
+        /* //////////////////////////////////////////////////////////////////////// */
+
+
+        body {
+            margin: 0;
+            font-family: montserrat_regular;
+            background-color: var(--main-color);
+            color: var(--secondary-color);
+        }
+
+
+        /* Navbar */
+        nav {
+            background-color: var(--secondary-color);
+            height: 10vh; /* 10% of the vertical height */
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+            align-items: center;
+            padding: 0 20px;
+            font-family: montserrat_medium;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--main-color); /* Specify the color and style of the bottom border */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--main-color);
+            margin-right: 50px; /* Adjust the margin as needed */
+        }
+
+        nav a:hover{
+            color: #e74c3c; /* Change the color on hover */
+        }
+        /* //////////////////////////////////////////////////////////////////// */
+
+
+        /* Card */
+        
+
+        /* Container for banner and card */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            background-image: url("./static/images/Banner.png");
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: contain;
+        }
+        
+
+        .card-container {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px var(--main-color);
+        }
+
+        .card {
+            width: 30vw;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            /* transform: translate(-50%, -50%) scale(1.1); */
+            transform: scale(1.02);
+        }
+        /* /////////////////////////////////////////////////////////////////////////////// */
+
+
+        /* Introduction Section */
+        .introContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 0vh 9vw 0vh 9vw;
+        }
+
+        .left-section {
+            width: 55%; /* Adjust the width as needed, leaving some space for margins */
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: justify;
+        }
+
+        .right-section {
+            width: 44%; /* Adjust the width as needed, leaving some space for margins */
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: small;
+            text-align: center;
+            align-items: center;
+        }
+
+
+        /* Dataset */
+        .datasetContainer {
+            height: 50vh;
+            background-color: var(--secondary-color);
+            color: var(--main-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <a href="#">Introduction</a>
+            <a href="#">Dataset</a>
+            <a href="#">Publications</a>
+            <a href="#" style="margin-right: 100px;">Challenge</a>
+        </div>
+    </nav>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+    
+
+    <!-- Card -->
+    <div class="container">
+        <div class="card-container">
+            <div class="card" style="color: black;">
+                <h1 style="font-family: montserrat_bold;">MAV-CELEB</h1>
+                <h3 style="font-family: montserrat_lightItalic;">A Multi-lingual Audio Visual dataset of Celebrities.</h3>
+            </div>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- Introduction -->
+    <h1 style="font-family: montserrat_bold; text-align: center;">Introduction</h1>
+    <div class="introContainer">
+        <div class="left-section">
+            <p>
+                Machines achieving human-like face-voice association ability is expected to significantly enhance 
+                the efficacy of multimodal biometrics, particularly amid the rising tide of disinformation fueled by the 
+                powerful weapon of audio-vision deepfakes. Prior works adopt metric learning methods to learn an embedding 
+                space that is amenable to associated matching and verification tasks. 
+            </p>
+            <p>
+                Albeit showing some progress, such formulations are, however, restrictive due to dependency on 
+                distance-dependent margin parameter, poor runtime training complexity, and reliance on carefully crafted 
+                negative mining procedures. In this work,we hypothesize that an enriched representation coupled with 
+                effective yet efficient supervision is important towards realizing a discriminative joint embedding space 
+                for face-voice association tasks. To this end, we propose a light-weight, plug-and-play mechanism that 
+                exploits the complementary cues in both modalities to form enriched fused embeddings and clusters them 
+                based on their identity labels via orthogonality constraints.
+            </p>
+            <p>
+                We coin our proposed mechanism as fusion and orthogonal projection (FOP) and instantiate in a two-stream 
+                network. The overall resulting framework is evaluated on VoxCeleb1 and MAV-Celeb datasets with a multitude 
+                of tasks, including cross-modal verification and matching. Results reveal that our method performs favourably 
+                against the current state-of-the-art methods and our proposed formulation of supervision is more effective and 
+                efficient than the ones employed by the contemporary methods. Lastly, we leverage cross-modal verification and 
+                matching tasks to analyze the impact of multiple languages on face-voice association.
+            </p>
+        </div>
+
+        <div class="right-section">
+            <img src="./static/images/workflow.png" style="width: 100%;">
+            <p>Figure 1: Diagram showing cross-modal verification and matching task on Face-Voice Association with 
+                multiple languages.
+            </p>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- Dataset Section -->
+    <div class="datasetContainer">
+        <h1 style="font-family: montserrat_bold; text-align: center; padding-top: 4vh;">Dataset</h1>
+
+    </div>
+
+</body>
+</html>
